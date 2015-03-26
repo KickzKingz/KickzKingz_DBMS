@@ -19,10 +19,10 @@ public class LoginController {
     @FXML private Text signinmessage;
     
     @FXML protected void handleSignInButtonAction(ActionEvent event) {
-        //signinmessage.setText("Sign in button presssed");
-        Node source = (Node)event.getSource();
-        Stage stage = (Stage)source.getScene().getWindow();
-        stage.close();
+        signinmessage.setText("Sign in button presssed");
+//        Node source = (Node)event.getSource();
+//        Stage stage = (Stage)source.getScene().getWindow();
+//        stage.close();
         
     }
     

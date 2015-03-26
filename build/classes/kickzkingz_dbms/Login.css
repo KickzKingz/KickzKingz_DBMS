@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 root{display: block;}
 
-.root{-fx-background-image: url("leather_background.jpg");}
+/*.root{-fx-background-image: url("leather_background.jpg");}*/
 
 .label{
     -fx-font-size: 12px;
