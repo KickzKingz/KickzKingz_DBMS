@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kickzkingz_dbms;
+package application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,16 +15,16 @@ import javafx.stage.Stage;
  *
  * @author Kent
  */
-public class Login extends Application {
-
+public class MainScreen extends Application{
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
 
         primaryStage.setTitle("KickzKingz DBMS");
-        Scene scene = new Scene(root, 300, 275);
+        Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add(Login.class.getResource("Login.css").toExternalForm());
+        scene.getStylesheets().add(Login.class.getResource("/view/MainScreen.css").toExternalForm());
         primaryStage.show();
     }
 
@@ -35,5 +35,4 @@ public class Login extends Application {
         //launch(args);
         Application.launch(Login.class, args);
     }
-
 }

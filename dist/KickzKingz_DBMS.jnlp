@@ -11,11 +11,11 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="KickzKingz_DBMS.jar" size="407306" download="eager" />
+    <jar href="KickzKingz_DBMS.jar" size="414527" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="KickzKingz_DBMS" >
     <param name="requiredFXVersion" value="2.2+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="kickzkingz_dbms.Splash"  name="KickzKingz_DBMS" />
+  <jfx:javafx-desc  width="800" height="600" main-class="application.Splash"  name="KickzKingz_DBMS" />
   <update check="always"/>
 </jnlp>

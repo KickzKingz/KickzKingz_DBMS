@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="inventoryAnchor" fx:id="inventoryAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.tab.InventoryController">
+   <children>
+      <TableView id="inventoryTable" fx:id="inventoryTable" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="188.0" prefWidth="320.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button id="inventoryUpdateButton" fx:id="inventoryUpdateButton" layoutX="531.0" layoutY="336.0" mnemonicParsing="false" text="Update" />
+      <Button id="inventoryRemoveButton" fx:id="inventoryRemoveButton" layoutX="451.0" layoutY="336.0" mnemonicParsing="false" text="Remove..." />
+      <Button id="inventoryAddButton" fx:id="inventoryAddButton" layoutX="393.0" layoutY="336.0" mnemonicParsing="false" text="Add..." textAlignment="CENTER" />
+      <Label id="inventoryLabel" fx:id="inventoryLabel" layoutX="160.0" layoutY="358.0" />
+   </children>
+</AnchorPane>

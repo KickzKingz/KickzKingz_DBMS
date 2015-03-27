@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kickzkingz_dbms;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,8 +17,6 @@ import javafx.fxml.Initializable;
  * @author Kent
  */
 public class MainScreenController implements Initializable {
-    @FXML private URL url;
-    @FXML private ResourceBundle rb;
     
     @FXML protected void handleCloseButtonAction(ActionEvent event)
     {

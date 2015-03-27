@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kickzkingz_dbms;
+package application;
 
 import static java.lang.StrictMath.random;
 import java.util.logging.Level;
@@ -41,7 +41,7 @@ public class Splash extends Application {
 
     @Override
     public void start(final Stage primaryStage) {
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         Group root = new Group();
         Scene scene = new Scene(root, 800, 600, Color.BLACK);
         primaryStage.setScene(scene);
@@ -54,7 +54,7 @@ public class Splash extends Application {
             circle.setStrokeWidth(4);
             circles.getChildren().add(circle);
         }
-        Image i = new Image(getClass().getResource("leatherlarge.jpg").toExternalForm(), false);
+        Image i = new Image(getClass().getResource("/view/leatherlarge.jpg").toExternalForm(), false);
         ImagePattern ip = new ImagePattern(i);
         Rectangle colors = new Rectangle(scene.getWidth(), scene.getHeight());
         colors.setFill(ip);
