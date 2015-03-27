@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="mainAnchor" fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
+   <children>
+      <TabPane id="tabPane" fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab id="inventoryTab" fx:id="InventoryTab" closable="false" text="Inventory">
+               <content>
+                  <fx:include fx:id="inventory" source="tab/Inventory.fxml" />
+               </content>
+            </Tab>
+            <Tab id="customersTab" fx:id="CustomerTab" closable="false" text="Customers">
+               <content>
+                  <fx:include fx:id="customer" source="tab/Customer.fxml" />
+               </content>
+            </Tab>
+            <Tab id="calendarTab" fx:id="CalendarTab" closable="false" text="Calendar">
+               <content>
+                  <fx:include fx:id="calendar" source="tab/Calendar.fxml" />
+               </content>
+            </Tab>
+            <Tab id="transactionTab" fx:id="TransactionTab" closable="false" text="Transactions">
+               <content>
+                  <fx:include fx:id="transaction" source="tab/Transaction.fxml" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
