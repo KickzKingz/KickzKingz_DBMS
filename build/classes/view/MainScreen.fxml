@@ -17,7 +17,7 @@
             </Tab>
             <Tab id="customersTab" fx:id="CustomerTab" closable="false" text="Customers">
                <content>
-                  <fx:include fx:id="customer" source="tab/Customer.fxml" />
+                  <fx:include source="tab/Customer.fxml" />
                </content>
             </Tab>
             <Tab id="calendarTab" fx:id="CalendarTab" closable="false" text="Calendar">

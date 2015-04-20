@@ -6,16 +6,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.tab.TransactionController">
    <children>
       <Label fx:id="inventoryLabel" layoutX="170.0" layoutY="368.0" />
       <Button id="reportButton" fx:id="reportButton" layoutX="482.0" layoutY="336.0" mnemonicParsing="false" text="Generate Report" />
-      <TableView fx:id="reportTable" editable="true" layoutX="13.0" layoutY="24.0" prefHeight="350.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
-         </columns>
-      </TableView>
+      <TableView id="transactionTable" fx:id="transactionTable" editable="true" layoutX="13.0" layoutY="24.0" prefHeight="350.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <ComboBox id="reportComboBox" fx:id="reportComboBox" layoutX="320.0" layoutY="336.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
