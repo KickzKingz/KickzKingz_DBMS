@@ -8,6 +8,7 @@ package database;
 import controller.LoginController;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -50,21 +51,20 @@ public class SQLExecuter {
         }
     }
     
-    public static String[] removeItemRecord(String id)
+    public static void removeItemRecord(String _id)
     {
-        String sql = "DELETE * FROM Inventory WHERE INV_ID=" + id;
-        String[] record = new String[7];
+        int id = Integer.parseInt(_id);
+        String sql = "DELETE FROM Inventory WHERE INV_ID = ?";
         try{
              Connection conn = DriverManager.getConnection(DB_URL);
-            Statement stmt = conn.createStatement(ResultSet.CONCUR_READ_ONLY,
-                    ResultSet.TYPE_SCROLL_INSENSITIVE);
-            ResultSet rs = stmt.executeQuery(sql);
-            System.out.println("SQL executed.");
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+            System.out.println("Item " + id + " removed from collection.");
             conn.close();
         } catch(Exception ex){
             System.out.println("ERROR: " + ex.getMessage());
         }
-        return record;
     }
 
     /**

@@ -12,13 +12,13 @@
    <children>
       <TableView id="inventoryTable" fx:id="inventoryTable" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="188.0" prefWidth="320.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columns>
-            <TableColumn fx:id="tableColumnModel" prefWidth="75.0" text="Column X" />
-            <TableColumn fx:id="tableColumnSize" prefWidth="75.0" text="Column X" />
-            <TableColumn fx:id="tableColumnColorway" prefWidth="75.0" text="Column X" />
-            <TableColumn fx:id="tableColumnCondition" prefWidth="75.0" text="Column X" />
-            <TableColumn fx:id="tableColumnPrice" prefWidth="75.0" text="Column X" />
-            <TableColumn fx:id="tableColumnCost" prefWidth="75.0" text="Column X" />
-            <TableColumn fx:id="tableColumnINV_ID" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="tableColumnModel" prefWidth="75.0" text="Model" />
+            <TableColumn fx:id="tableColumnSize" prefWidth="75.0" text="Size" />
+            <TableColumn fx:id="tableColumnColorway" prefWidth="75.0" text="Colorway" />
+            <TableColumn fx:id="tableColumnCondition" prefWidth="75.0" text="Condition" />
+            <TableColumn fx:id="tableColumnPrice" prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="tableColumnCost" prefWidth="75.0" text="Cost" />
+            <TableColumn fx:id="tableColumnINV_ID" prefWidth="75.0" text="INV_ID" />
          </columns></TableView>
       <Button id="inventoryUpdateButton" fx:id="inventoryUpdateButton" layoutX="531.0" layoutY="336.0" mnemonicParsing="false" onAction="#inventoryUpdateButtonClicked" text="Update" />
       <Button id="inventoryRemoveButton" fx:id="inventoryRemoveButton" layoutX="453.0" layoutY="336.0" mnemonicParsing="false" onAction="#inventoryRemoveButtonClicked" text="Remove..." />
