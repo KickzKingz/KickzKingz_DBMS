@@ -12,6 +12,17 @@
       <Button fx:id="customerAddButton" layoutX="395.0" layoutY="336.0" mnemonicParsing="false" text="Add..." textAlignment="CENTER" />
       <Button fx:id="customerRemoveButton" layoutX="452.0" layoutY="336.0" mnemonicParsing="false" text="Remove..." />
       <Button fx:id="customerUpdateButton" layoutX="531.0" layoutY="336.0" mnemonicParsing="false" text="Update" />
-      <TableView fx:id="customersTable" editable="true" layoutX="24.0" layoutY="24.0" prefHeight="350.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TableView fx:id="customersTable" editable="true" layoutX="24.0" layoutY="24.0" prefHeight="350.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columns>
+            <TableColumn fx:id="tableColumnName_Last" prefWidth="65.0" text="Last Name" />
+            <TableColumn fx:id="tableColumnName_First" prefWidth="65.0" text="First Name" />
+            <TableColumn fx:id="tableColumnCUST_ID" prefWidth="65.0" text="ID" />
+            <TableColumn fx:id="tableColumnState" prefWidth="65.0" text="State" />
+            <TableColumn fx:id="tableColumnCity" prefWidth="65.0" text="City" />
+            <TableColumn fx:id="tableColumnZip" prefWidth="65.0" text="Zip" />
+            <TableColumn fx:id="tableColumnAddress" prefWidth="65.0" text="Address" />
+            <TableColumn fx:id="tableColumnEmail" prefWidth="65.0" text="Email" />
+            <TableColumn fx:id="tableColumnPhone" prefWidth="65.0" text="Phone" />
+         </columns></TableView>
    </children>
 </AnchorPane>

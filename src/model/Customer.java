@@ -13,148 +13,165 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Customer {
     
-    private SimpleStringProperty customerId, customerFirstName, customerLastName,
-            customerState, customerCity, customerZip, customerEmail, 
-            customerAddress, customerPhone;
-   
-    public Customer(String id, String firstName, String lastName, String state, 
-            String city, String zip, String address, String email, String phone)
+    private SimpleStringProperty CUST_ID, Name_First, Name_Last,
+            State, City, Zip, Email, Address, Phone;
+    
+    public Customer()
     {
-        setCustomerId(id);
-        setCustomerLastName(lastName);
-        setCustomerFirstName(firstName);
-        setCustomerCity(city);
-        setCustomerPhone(phone);
-        setCustomerState(state);
-        setCustomerZip(zip);
-        setCustomerAddress(address);
-        setCustomerEmail(email);
+        CUST_ID = new SimpleStringProperty();
+        Name_First = new SimpleStringProperty();
+        Name_Last = new SimpleStringProperty();
+        State = new SimpleStringProperty();
+        City = new SimpleStringProperty();
+        Zip = new SimpleStringProperty();
+        Email = new SimpleStringProperty();
+        Address = new SimpleStringProperty();
+        Phone = new SimpleStringProperty();
     }
+   
+//    public Customer(String id, String firstName, String lastName, String state, 
+//            String city, String zip, String address, String email, String phone)
+//    {
+//        setCustomerId(id);
+//        setCustomerLastName(lastName);
+//        setCustomerFirstName(firstName);
+//        setCustomerCity(city);
+//        setCustomerPhone(phone);
+//        setCustomerState(state);
+//        setCustomerZip(zip);
+//        setCustomerAddress(address);
+//        setCustomerEmail(email);
+//    }
 
     /**
      * @return the customerId
      */
-    private String getCustomerId() {
-        return customerId.get();
+    public String getCUST_ID() {
+        return CUST_ID.get();
     }
 
     /**
      * @param customerId the customerId to set
      */
-    private void setCustomerId(String customerId) {
-        this.customerId.set(customerId);
+    public void setCUST_ID(String customerId) {
+        this.CUST_ID.set(customerId);
     }
 
     /**
      * @return the customerFirstName
      */
-    private String getCustomerFirstName() {
-        return customerFirstName.get();
+    public String getName_First() {
+        return Name_First.get();
     }
 
     /**
      * @param customerFirstName the customerFirstName to set
      */
-    private void setCustomerFirstName(String customerFirstName) {
-        this.customerFirstName.set(customerFirstName);
+    public void setName_First(String customerFirstName) {
+        this.Name_First.set(customerFirstName);
     }
 
     /**
      * @return the customerLastName
      */
-    private String getCustomerLastName() {
-        return customerLastName.get();
+    public String getName_Last() {
+        return Name_Last.get();
     }
 
     /**
      * @param customerLastName the customerLastName to set
      */
-    private void setCustomerLastName(String customerLastName) {
-        this.customerLastName.set(customerLastName);
+    public void setName_Last(String customerLastName) {
+        this.Name_Last.set(customerLastName);
     }
 
     /**
      * @return the customerState
      */
-    private String getCustomerState() {
-        return customerState.get();
+    public String getState() {
+        return State.get();
     }
 
     /**
      * @param customerState the customerState to set
      */
-    private void setCustomerState(String customerState) {
-        this.customerState.set(customerState);
+    public void setState(String customerState) {
+        this.State.set(customerState);
     }
 
     /**
      * @return the customerCity
      */
-    private String getCustomerCity() {
-        return customerCity.get();
+    public String getCity() {
+        return City.get();
     }
 
     /**
      * @param customerCity the customerCity to set
      */
-    private void setCustomerCity(String customerCity) {
-        this.customerCity.set(customerCity);
+    public void setCity(String customerCity) {
+        this.City.set(customerCity);
     }
 
     /**
      * @return the customerZip
      */
-    private String getCustomerZip() {
-        return customerZip.get();
+    public String getZip() {
+        return Zip.get();
     }
 
     /**
      * @param customerZip the customerZip to set
      */
-    private void setCustomerZip(String customerZip) {
-        this.customerZip.set(customerZip);
+    public void setZip(String customerZip) {
+        this.Zip.set(customerZip);
     }
 
     /**
      * @return the customerEmail
      */
-    private String getCustomerEmail() {
-        return customerEmail.get();
+    public String getEmail() {
+        return Email.get();
     }
 
     /**
      * @param customerEmail the customerEmail to set
      */
-    private void setCustomerEmail(String customerEmail) {
-        this.customerEmail.set(customerEmail);
+    public void setEmail(String customerEmail) {
+        this.Email.set(customerEmail);
     }
 
     /**
      * @return the cutomerPhone
      */
-    private String getCustomerPhone() {
-        return customerPhone.get();
+    public String getPhone() {
+        return Phone.get();
     }
 
     /**
-     * @param cutomerPhone the cutomerPhone to set
+     * @param customerPhone the cutomerPhone to set
      */
-    private void setCustomerPhone(String customerPhone) {
-        this.customerPhone.set(customerPhone);
+    public void setPhone(String customerPhone) {
+        this.Phone.set(customerPhone);
     }
 
     /**
      * @return the customerAddress
      */
-    private String getCustomerAddress() {
-        return customerAddress.get();
+    public String getAddress() {
+        return Address.get();
     }
 
     /**
      * @param customerAddress the customerAddress to set
      */
-    private void setCustomerAddress(String customerAddress) {
-        this.customerAddress.set(customerAddress);
+    public void setAddress(String customerAddress) {
+        this.Address.set(customerAddress);
+    }
+    
+    @Override
+    public String toString(){
+        return Name_Last.get() + ", " + Name_First.get();
     }
 }
 

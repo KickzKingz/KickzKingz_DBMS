@@ -47,21 +47,20 @@ public class SQLExecuter {
             System.out.println("Done");
         } catch (Exception ex) {
             System.out.println("ERROR: " + ex.getMessage());
-            ex.printStackTrace();
         }
     }
     
-    public static void removeItemRecord(String _id)
+    public static void removeRecord(String tableName, String _id)
     {
         int id = Integer.parseInt(_id);
-        String sql = "DELETE FROM Inventory WHERE INV_ID = ?";
+        String sql = "DELETE FROM " + tableName + " WHERE INV_ID = ?";
         try{
-             Connection conn = DriverManager.getConnection(DB_URL);
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, id);
-            pstmt.executeUpdate();
-            System.out.println("Item " + id + " removed from collection.");
-            conn.close();
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setInt(1, id);
+                pstmt.executeUpdate();
+                System.out.println("Item " + id + " removed from collection.");
+            }
         } catch(Exception ex){
             System.out.println("ERROR: " + ex.getMessage());
         }
@@ -76,12 +75,12 @@ public class SQLExecuter {
         //final String DB_URL = "jdbc:derby:KickzKingzDB";
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL);
-            Statement stmt = conn.createStatement(ResultSet.CONCUR_READ_ONLY,
-                    ResultSet.TYPE_SCROLL_INSENSITIVE);
-            ResultSet rs = stmt.executeQuery(sql);
-            System.out.println("SQL executed.");
-            conn.close();
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                Statement stmt = conn.createStatement(ResultSet.CONCUR_READ_ONLY,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE);
+                ResultSet rs = stmt.executeQuery(sql);
+                System.out.println("SQL executed.");
+            }
 
         } catch (Exception ex) {
             System.out.println("ERROR: " + ex.getMessage());
@@ -126,59 +125,63 @@ public class SQLExecuter {
         return flag;
     }
     
-    public static ObservableList<ObservableList> buildData(String tablename)
-    {
-        ObservableList<ObservableList> data = FXCollections.observableArrayList();
-        try{
-            Connection c = DriverManager.getConnection(DB_URL);
-            String sql = "SELECT * from " + tablename;
-            
-            ResultSet  rs = c.createStatement().executeQuery(sql);
-            
-            while(rs.next()){
-                ObservableList<String> row = FXCollections.observableArrayList();
-                for(int i=1; i<=rs.getMetaData().getColumnCount(); i++){
-                    row.add(rs.getString(i));
-                }
-                data.add(row);
+    public static void updateItemRecord(String model, String colorway, String size, 
+            String condition, String cost, String price, String id) {
+        int _id = Integer.parseInt(id);
+        try {
+            String updateSQL = "Update Inventory Set Model='" + model + "', " +
+                    "Colorway='" + colorway + "', " +
+                    "Condition='" + condition + "', " +
+                    "Size='" + size + "', " +
+                    "Price='" + price + "', " +
+                    "Cost='" + cost + "' " +
+                    "Where INV_ID=?";
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                PreparedStatement pstmt = conn.prepareStatement(updateSQL);
+                pstmt.setInt(1, _id);
+                pstmt.executeUpdate();
+                System.out.println("SQL executed.");
+                conn.close();
             }
-            //c.close();
-        }catch(Exception ex)
-        {
-            ex.printStackTrace();
-            System.out.println("Error on building data");
+        } catch (Exception ex) {
+            System.out.println("ERROR: " + ex.getMessage());
         }
-        return data;
+    }
+
+    public static void sellItem(String inv_id, String cust_id) {
+         try {
+            String updateSQL = "Update Inventory Where ";
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                Statement stmt = conn.createStatement();
+                stmt.executeQuery(updateSQL);
+                System.out.println("SQL executed.");
+            }
+        } catch (Exception ex) {
+            System.out.println("ERROR: " + ex.getMessage());
+        }
     }
     
-    public static  ArrayList<TableColumn>getTableColumns(String tablename)
+    public static void addItem(String model, String colorway, String size, 
+            String condition, String cost, String price)
     {
-        ArrayList<TableColumn> columns = new ArrayList<>();
         try{
+            String insertSQL = "INSERT INTO INVENTORY "
+                    + "(MODEL, COLORWAY, CONDITION, SIZE, PRICE, COST) " 
+                    + "VALUES "
+                    + "('" + model + "', "
+                    + "'" + colorway + "', "
+                    + "'" + condition + "', "
+                    + "'" + size + "', "
+                    + "'" + price + "', "
+                    + "'" + cost + "')";
             Connection c = DriverManager.getConnection(DB_URL);
-            String sql = "SELECT * from " + tablename;
-            ResultSet  rs = c.createStatement().executeQuery(sql);
-            
-            for(int i = 0; i < rs.getMetaData().getColumnCount(); i++)
-            {
-                final int j = i;
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
-                //col.setMinWidth(75);
-                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList,String>,ObservableValue<String>>(){
-                    @Override
-                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> p) {
-                        return new SimpleStringProperty(p.getValue().get(j).toString());
-                    }
-                });
-                columns.add(col);
-            }
-            //c.close();
+            Statement stmt = c.createStatement();
+            stmt.executeUpdate(insertSQL);
+            System.out.println("Item inserted");
+            c.close();
         }
         catch(Exception ex){
-            ex.printStackTrace();
-            System.out.println("Error getting column names.");
+            System.out.println("ERROR: " + ex.getMessage());
         }
-        
-        return columns;
     }
 }

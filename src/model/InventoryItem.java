@@ -12,22 +12,21 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Kent
  */
 public class InventoryItem {
-    
+
     private SimpleStringProperty INV_ID, Model, Colorway, Condition,
             Size, Price, Cost;
-    
-    public InventoryItem()
-    {
-        INV_ID = new SimpleStringProperty();
-        Model = new SimpleStringProperty();
-        Colorway = new SimpleStringProperty();
-        Condition = new SimpleStringProperty();
-        Size = new SimpleStringProperty();
-        Price = new SimpleStringProperty();
-        Cost = new SimpleStringProperty();
-        
+
+    public InventoryItem() {
+        INV_ID = new SimpleStringProperty("");
+        Model = new SimpleStringProperty("");
+        Colorway = new SimpleStringProperty("");
+        Condition = new SimpleStringProperty("");
+        Size = new SimpleStringProperty("");
+        Price = new SimpleStringProperty("");
+        Cost = new SimpleStringProperty("");
+
     }
-    
+
 //    public InventoryItem(String id, String model,
 //            String colorway, String condition, 
 //            String size, String price,
@@ -41,7 +40,6 @@ public class InventoryItem {
 //        setItemPrice(price);
 //        setItemCost(cost);
 //    }
-
     /**
      * @return the INV_ID
      */
@@ -139,5 +137,13 @@ public class InventoryItem {
     public void setCost(String _cost) {
         this.Cost.set(_cost);
     }
-    
+
+    public boolean equals(InventoryItem other) {
+        if (other.getINV_ID() == this.getINV_ID()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -21,7 +21,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
+import model.Customer;
 
 /**
  *
@@ -31,9 +33,28 @@ public class CustomerController implements Initializable{
     @FXML private Button customerAddButton;
     @FXML private Button customerRemoveButton;
     @FXML private Button customerUpdateButton;
-    @FXML private TableView customersTable;
+    @FXML private TableView<Customer> customersTable;
     
-    private ObservableList<ObservableList> data;
+    private ObservableList<Customer> data;
+    
+    @FXML TableColumn<Customer, String> tableColumnName_Last;
+    
+    @FXML TableColumn<Customer, String> tableColumnName_First;
+    
+    @FXML TableColumn<Customer, String> tableColumnCUST_ID;
+    
+    @FXML TableColumn<Customer, String> tableColumnState;
+    
+    @FXML TableColumn<Customer, String> tableColumnCity;
+    
+    @FXML TableColumn<Customer, String> tableColumnZip;
+    
+    @FXML TableColumn<Customer, String> tableColumnAddress;
+    
+    @FXML TableColumn<Customer, String> tableColumnEmail;
+    
+    @FXML TableColumn<Customer, String> tableColumnPhone;
+    
     
     @FXML private void customerAddButtonClicked(ActionEvent event) {
         
@@ -50,10 +71,19 @@ public class CustomerController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        customersTable.getColumns().addAll(SQLExecuter.getTableColumns("CUSTOMERS"));
-        customersTable.setItems(SQLExecuter.buildData("CUSTOMERS"));
+        //customersTable.getColumns().addAll(SQLExecuter.getTableColumns("CUSTOMERS"));
+        //customersTable.setItems(SQLExecuter.buildData("CUSTOMERS"));
         customersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        //buildData();
+        tableColumnName_Last.setCellValueFactory(new PropertyValueFactory<Customer, String>("Name_Last"));
+        tableColumnName_First.setCellValueFactory(new PropertyValueFactory<Customer, String>("Name_First"));
+        tableColumnCUST_ID.setCellValueFactory(new PropertyValueFactory<Customer, String>("CUST_ID"));
+        tableColumnState.setCellValueFactory(new PropertyValueFactory<Customer, String>("State"));
+        tableColumnCity.setCellValueFactory(new PropertyValueFactory<Customer, String>("City"));
+        tableColumnZip.setCellValueFactory(new PropertyValueFactory<Customer, String>("Zip"));
+        tableColumnAddress.setCellValueFactory(new PropertyValueFactory<Customer, String>("Address"));
+        tableColumnEmail.setCellValueFactory(new PropertyValueFactory<Customer, String>("Email"));
+        tableColumnPhone.setCellValueFactory(new PropertyValueFactory<Customer, String>("Phone"));
+        buildData();
         
     }
     
@@ -65,33 +95,39 @@ public class CustomerController implements Initializable{
         data = FXCollections.observableArrayList();
 
         try {
-            Connection c = DriverManager.getConnection(DB_URL);
+            Connection conn = DriverManager.getConnection(DB_URL);
             String sql = "SELECT * from CUSTOMERS";
-            ResultSet rs = c.createStatement().executeQuery(sql);
+            ResultSet rs = conn.createStatement().executeQuery(sql);
 
-            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
-                final int j = i;
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
-                //col.setMinWidth(75);
-                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
-                    @Override
-                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> p) {
-                        return new SimpleStringProperty(p.getValue().get(j).toString());
-                    }
-                });
-                customersTable.getColumns().addAll(col);
-            }
+//            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+//                final int j = i;
+//                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+//                //col.setMinWidth(75);
+//                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+//                    @Override
+//                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> p) {
+//                        return new SimpleStringProperty(p.getValue().get(j).toString());
+//                    }
+//                });
+//                customersTable.getColumns().addAll(col);
+//            }
 
             while (rs.next()) {
-                ObservableList<String> row = FXCollections.observableArrayList();
-                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    row.add(rs.getString(i));
+                Customer c = new Customer();
+                c.setName_Last(rs.getString(1));
+                c.setName_First(rs.getString(2));
+                c.setCUST_ID(rs.getString(3));
+                c.setState(rs.getString(4));
+                c.setCity(rs.getString(5));
+                c.setZip(rs.getString(6));
+                c.setAddress(rs.getString(7));
+                c.setEmail(rs.getString(8));
+                c.setEmail(rs.getString(9));
+                data.add(c);
                 }
-                data.add(row);
-            }
             customersTable.setItems(data);
             customersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-            c.close();
+            conn.close();
             rs.close();
         } catch (Exception ex) {
             ex.printStackTrace();

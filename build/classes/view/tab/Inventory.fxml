@@ -18,7 +18,7 @@
             <TableColumn fx:id="tableColumnCondition" prefWidth="75.0" text="Condition" />
             <TableColumn fx:id="tableColumnPrice" prefWidth="75.0" text="Price" />
             <TableColumn fx:id="tableColumnCost" prefWidth="75.0" text="Cost" />
-            <TableColumn fx:id="tableColumnINV_ID" prefWidth="75.0" text="INV_ID" />
+            <TableColumn fx:id="tableColumnINV_ID" prefWidth="75.0" text="ID" />
          </columns></TableView>
       <Button id="inventoryUpdateButton" fx:id="inventoryUpdateButton" layoutX="531.0" layoutY="336.0" mnemonicParsing="false" onAction="#inventoryUpdateButtonClicked" text="Update" />
       <Button id="inventoryRemoveButton" fx:id="inventoryRemoveButton" layoutX="453.0" layoutY="336.0" mnemonicParsing="false" onAction="#inventoryRemoveButtonClicked" text="Remove..." />

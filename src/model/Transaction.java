@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.Date;
+import javafx.beans.property.SimpleStringProperty;
 
 /**
  *
@@ -13,71 +14,78 @@ import java.sql.Date;
  */
 public class Transaction {
     
-    private String _transId, _custId, _invId;
+    private SimpleStringProperty TRANS_ID, CUST_ID, INV_ID;
     
-    private Date _date;
+    private Date Date;
     
-    public Transaction(String transId, String custId, String invId, Date date)
+    public Transaction()
     {
-        setTransId(transId);
-        setCustId(custId);
-        setInvId(invId);
-        setDate(date);
+        TRANS_ID = new SimpleStringProperty();
+        CUST_ID = new SimpleStringProperty();
+        INV_ID = new SimpleStringProperty();
     }
+    
+//    public Transaction(String transId, String custId, String invId, Date date)
+//    {
+//        setTransId(transId);
+//        setCustId(custId);
+//        setInvId(invId);
+//        setDate(date);
+//    }
 
     /**
      * @return the _transId
      */
-    private String getTransId() {
-        return _transId;
+    public String getTRANS_ID() {
+        return TRANS_ID.get();
     }
 
     /**
      * @param _transId the _transId to set
      */
-    private void setTransId(String _transId) {
-        this._transId = _transId;
+    public void setTRANS_ID(String _transId) {
+        this.TRANS_ID.set(_transId);
     }
 
     /**
      * @return the _custId
      */
-    private String getCustId() {
-        return _custId;
+    public String getCUST_ID() {
+        return CUST_ID.get();
     }
 
     /**
      * @param _custId the _custId to set
      */
-    private void setCustId(String _custId) {
-        this._custId = _custId;
+    public void setCUST_ID(String _custId) {
+        this.CUST_ID.set(_custId);
     }
 
     /**
      * @return the _invId
      */
-    private String getInvId() {
-        return _invId;
+    public String getINV_ID() {
+        return INV_ID.get();
     }
 
     /**
      * @param _invId the _invId to set
      */
-    private void setInvId(String _invId) {
-        this._invId = _invId;
+    public void setINV_ID(String _invId) {
+        this.INV_ID.set(_invId);
     }
 
     /**
-     * @return the _date
+     * @return the Date
      */
-    private Date getDate() {
-        return _date;
+    public Date getDate() {
+        return Date;
     }
 
     /**
-     * @param _date the _date to set
+     * @param _date the Date to set
      */
-    private void setDate(Date _date) {
-        this._date = _date;
+    public void setDate(Date _date) {
+        this.Date = _date;
     }
 }
