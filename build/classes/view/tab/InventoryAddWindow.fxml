@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -65,6 +66,56 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-
+=======
+<AnchorPane id="AnchorPane" prefHeight="228.0" prefWidth="422.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <TitledPane animated="false" prefHeight="232.0" prefWidth="422.0" text="Add Product">
+         <content>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="100.0" text="Model:" underline="true" />
+                  <Label prefHeight="17.0" prefWidth="100.0" text="Size:" underline="true" GridPane.rowIndex="1" />
+                  <Label prefHeight="17.0" prefWidth="100.0" text="Colorway:" underline="true" GridPane.rowIndex="2" />
+                  <Label prefHeight="17.0" prefWidth="100.0" text="Condition:" underline="true" GridPane.rowIndex="3" />
+                  <Label prefHeight="17.0" prefWidth="100.0" text="Price:" underline="true" GridPane.rowIndex="4" />
+                  <Label prefHeight="17.0" prefWidth="100.0" text="Cost:" underline="true" GridPane.rowIndex="5" />
+                  <Label id="hiddenLabel" prefHeight="18.0" prefWidth="200.0" GridPane.rowIndex="6" />
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button id="doneButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="DONE" GridPane.columnIndex="1" />
+                        <Button id="cancelButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="CANCEL" />
+                     </children>
+                  </GridPane>
+                  <TextField id="modelTextField" alignment="CENTER_RIGHT" promptText="an example: &quot;Air Jordens&quot;" GridPane.columnIndex="1" />
+                  <TextField id="sizeTextField" alignment="CENTER_RIGHT" promptText="All Sizes are in Mens" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField id="colorwayTextField" alignment="CENTER_RIGHT" promptText="cool stripe color goes here" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField id="conditionTextField" alignment="CENTER_RIGHT" promptText="From 1 to 10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField id="priceTextField" alignment="CENTER_RIGHT" promptText="Sell for this much" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField id="costTextField" alignment="CENTER_RIGHT" promptText="obtained for this much" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+         </content>
+      </TitledPane>
+>>>>>>> origin/master
    </children>
 </AnchorPane>

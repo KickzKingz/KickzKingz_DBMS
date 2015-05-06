@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
-Wed May 06 09:46:52 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.2 - (1557835): instance a816c00e-014d-297a-9f69-000004583800 
-on database directory C:\Users\Kent\Documents\NetBeansProjects\KickzKingz_DBMS\KickzKingzDB  with class loader java.net.URLClassLoader@3ef970e8 
-Loaded from file:/C:/Users/Kent/Documents/NetBeansProjects/KickzKingz_DBMS/dist/run2026311721/lib/derby.jar
+Wed May 06 11:07:21 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.3.2 - (1557835): instance a816c00e-014d-29c4-526d-0000045ec168 
+on database directory C:\Users\Kent\Documents\NetBeansProjects\KickzKingz_DBMS\KickzKingzDB  with class loader java.net.URLClassLoader@6a63afa4 
+Loaded from file:/C:/Users/Kent/Documents/NetBeansProjects/KickzKingz_DBMS/dist/run59262658/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_71-b14
 user.dir=C:\Users\Kent\Documents\NetBeansProjects\KickzKingz_DBMS
