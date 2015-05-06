@@ -11,8 +11,13 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
     <jar href="KickzKingz_DBMS.jar" size="442335" download="eager" />
     <jar href="lib/derby.jar" size="2679163" download="eager" />
+=======
+    <jar href="KickzKingz_DBMS.jar" size="413319" download="eager" />
+    <jar href="lib/derby.jar" size="2835824" download="eager" />
+>>>>>>> origin/master
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="KickzKingz_DBMS" >
     <param name="requiredFXVersion" value="2.2+"/>
